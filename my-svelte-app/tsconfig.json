@@ -1,7 +1,20 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+  "extends": "@tsconfig/svelte/tsconfig.json",  // Расширение базовой конфигурации для Svelte
+  "compilerOptions": {
+    "target": "ESNext",  // Современный стандарт ECMAScript
+    "module": "ESNext",  // Использование модуля ESNext для Svelte
+    "useDefineForClassFields": true,  // Включение поддержки класса ESNext
+    "moduleResolution": "node",  // Разрешение модулей в стиле Node.js
+    "resolveJsonModule": true,  // Разрешение импорта JSON
+    "allowJs": true,  // Разрешение использования JavaScript файлов в проекте
+    "checkJs": true,  // Проверка JavaScript файлов
+    "isolatedModules": true,  // Каждый файл должен быть самодостаточным модулем
+    "lib": ["es2020", "dom"],  // Использование библиотек для ECMAScript 2020 и DOM
+    "types": ["svelte"]  // Использование типов для Svelte
+  },
+  "include": [
+    "src/**/*.ts",  // Включить все TypeScript файлы
+    "src/**/*.js",  // Включить все JavaScript файлы
+    "src/**/*.svelte"  // Включить все Svelte файлы
   ]
 }

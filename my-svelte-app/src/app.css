@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #1a371f;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -76,4 +76,88 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+#card {
+  background: #2c622d;
+  border-radius: 10px;
+  font-weight: bold;
+  width: 300px;
+  height: 200px;
+  border: #204521 solid 10px;
+  justify-content: center;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+#cards {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+#component-input {
+  margin-top: 20px;
+}
+
+#input {
+  width: 270px;
+  height: 50px;
+  border: #212121 solid 7px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+#count {
+  background: #2c622d;
+  border-radius: 10px;
+}
+
+#h1 {
+  width: 300px;
+  background: #2c622d;
+  border-radius: 10px;
+  border: #204521 solid 10px;
+}
+
+#button-card {
+  margin-top: -20px;
+  justify-content: center;
+}
+
+#bun {
+  background: #2c622d;
+  border: #204521 solid 5px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 200px;
+  height: 70px;
+}
+
+#bun:hover {
+  filter: drop-shadow(0 0 2em #36a845);
+}
+
+#card:hover {
+  filter: drop-shadow(0 0 2em #36a845);
+}
+
+#cards:hover {
+  filter: drop-shadow(0 0 2em #23752e);
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.svelte:hover {
+  filter: drop-shadow(0 0 2em #ff3e00aa);
 }

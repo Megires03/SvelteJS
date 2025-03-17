@@ -1,5 +1,5 @@
 {
-  "name": "my-svelte-app",
+  "name": "package",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,11 +10,20 @@
     "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json"
   },
   "devDependencies": {
+    "@smui/button": "^8.0.0-beta.3",
+    "@smui/card": "^8.0.0-beta.3",
+    "@smui/icon-button": "^8.0.0-beta.3",
+    "@smui/textfield": "^8.0.0-beta.3",
+    "@sveltejs/adapter-static": "^0.0.17",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "@tsconfig/svelte": "^5.0.4",
-    "svelte": "^5.20.2",
+    "svelte": "^5.23.1",
     "svelte-check": "^4.1.4",
+    "svelte-preprocess": "^6.0.3",
     "typescript": "~5.7.2",
     "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "svelte-material-ui": "^8.0.0-beta.3"
   }
 }
