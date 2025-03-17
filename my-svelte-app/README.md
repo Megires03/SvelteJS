@@ -1,44 +1,43 @@
 # Svelte + TS + Vite
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+Этот шаблон поможет вам начать разработку с использованием Svelte и TypeScript в Vite.
 
-## Recommended IDE Setup
+## Рекомендуемая среда разработки
 
 [VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
 
-## Need an official Svelte framework?
+## Нужен официальный фреймворк Svelte?
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+Обратите внимание на [SvelteKit](https://github.com/sveltejs/kit#readme), который также использует Vite. Он предлагает серверлесс-подход, легко адаптируется к различным платформам, а также поддерживает TypeScript, SCSS, Less, mdsvex, GraphQL, PostCSS, Tailwind CSS и многое другое.
 
-## Technical considerations
+## Технические особенности
 
-**Why use this over SvelteKit?**
+**Почему использовать этот шаблон вместо SvelteKit?**
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+- SvelteKit предоставляет собственное решение для маршрутизации, которое может не подойти некоторым пользователям.
+- Это прежде всего фреймворк, использующий Vite под капотом, а не просто приложение на Vite.
+  
+Этот шаблон содержит минимально необходимый набор инструментов для старта с Vite + TypeScript + Svelte. Он предлагает хороший опыт разработки с поддержкой HMR и Intellisense, а также подходит для новичков.
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+Если в будущем вам понадобятся расширенные возможности SvelteKit, структура шаблона позволяет легко мигрировать.
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+**Почему используется global.d.ts а не  compilerOptions.types в jsconfig.json или tsconfig.json?**
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+Установка  compilerOptions.types исключает все типы, которые явно не указаны в конфигурации. Использование ссылок сохраняет стандартное поведение TypeScript, принимая информацию о типах из всего проекта, и при этом добавляет поддержку svelte и vite/client.
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+**Почему включен .vscode/extensions.json?**
 
-**Why include `.vscode/extensions.json`?**
+Вместо того чтобы просто рекомендовать расширения в README, этот файл позволяет VS Code автоматически предложить установить необходимые плагины при открытии проекта.
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+**Почему в шаблоне TypeScript включен allowJs?**
 
-**Why enable `allowJs` in the TS template?**
+Хотя allowJs: false предотвратил бы использование .jsайлов в проекте, это не мешает использовать JavaScript-синтаксис в .svelte файлах. Более того, это заставило бы включить checkJs: false, что ухудшило бы проверку типов. В ряде случаев может быть полезна смешанная кодовая база.
 
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
+**Почему HMR не сохраняет локальное состояние компонента?**
 
-**Why is HMR not preserving my local component state?**
+HMR с сохранением состояния компонента может вести себя неожиданно, поэтому он отключен по умолчанию в svelte-hmr и @sveltejs/vite-plugin-svelte d. Подробнее об этом можно прочитать [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
+Если состояние компонента важно, рассмотрите возможность создания внешнего хранилища, которое не будет сбрасываться при обновлении.
 ```ts
 // store.ts
 // An extremely simple external store
