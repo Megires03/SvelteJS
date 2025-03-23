@@ -1,6 +1,15 @@
-<CircularProgress style="height: 30px; width: 30px;" {progress} {closed} />
-<br>
-<div style="display: flex; justify-content: center">
+<CircularProgress style="height: 40px; width: 40px; margin-top: -22px;" {progress} {closed} />
+<!-- <br>
+<div id="title">
+  <a href="https://vite.dev" target="_blank" rel="noreferrer">
+    <img src={viteLogo} class="logo" alt="Vite Logo" />
+  </a>
+  <a href="https://svelte.dev" target="_blank" rel="noreferrer">
+    <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
+  </a>
+</div> -->
+
+<div>
   {#if progress == 1}
     <div class="paper-container">
       <Counter />
@@ -9,9 +18,11 @@
 </div>
 
 <script lang="ts">
+  import svelteLogo from '/img/svelte.svg'
+  import viteLogo from '/img/vite.svg'
   import CircularProgress from '@smui/circular-progress';
   import 'svelte-material-ui/bare.css';
-  import { onMount, onDestroy } from 'svelte';
+  import { onDestroy } from 'svelte';
   import Counter from './Counter.svelte'
 
   let progress = $state(0);
@@ -39,9 +50,3 @@
     clearInterval(timer);
   });
 </script>
-
-<style>
-  .closed {
-    display: none;
-  }
-</style>
